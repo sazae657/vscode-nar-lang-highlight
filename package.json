@@ -1,0 +1,26 @@
+{
+    "name": "narlang",
+    "displayName": "NarLang Highlight",
+    "description": "NarLang",
+    "version": "0.0.1",
+    "publisher": "sazae657",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "narlang",
+            "aliases": ["Nar", "narlang"],
+            "extensions": [".nar"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "narlang",
+            "scopeName": "source.narlang",
+            "path": "./syntaxes/narlang.tmLanguage.json"
+        }]
+    }
+}

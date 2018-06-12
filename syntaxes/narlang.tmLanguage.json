@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ナー",
+	"scopeName": "source.narlang",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.narlang",
+				"match": "\\b(new|old|muast|modul|offentlichkeit|wie|gleich|ob|ist|sonst|verwenden)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.narlang",
+			"begin": "<!\\-\\-",
+			"end": "\\-\\-!>",
+			"patterns": [
+				{
+					"name": "constant.character.escape.narlang",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "nar\\->",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.narlang"
+						}
+					},
+					"end": "<\\-nar",
+					"name": "comment.block.narlang"
+				},
+				{
+					"begin": "(^[ \\t]+)?(?=@nar)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.narlang"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "@nar",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.narlang"
+								}
+							},
+							"end": "\\n",
+							"name": "comment.line.double-slash.narlang",
+							"patterns": [
+								{
+									"match": "(?>\\\\\\s*\\n)",
+									"name": "punctuation.separator.continuation.narlang"
+								}
+							]
+						}
+					]
+				}
+			]
+
+		}
+	}
+}
+
+
+
